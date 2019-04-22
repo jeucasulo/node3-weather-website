@@ -8,7 +8,8 @@ console.log('Client side javascript file is loaded!');
 //     });
 // });
 const getLocation = (location)=>{
-fetch('https://171c31a14d7c4beb9235d576e1bf617e.vfs.cloud9.us-east-2.amazonaws.com/weather?address='+location+'').then((response)=>{
+// fetch('https://171c31a14d7c4beb9235d576e1bf617e.vfs.cloud9.us-east-2.amazonaws.com/weather?address='+location+'').then((response)=>{ //local
+fetch('/weather?address='+location+'').then((response)=>{ //heroku or local
     response.json().then((data)=>{
         if(data.error){
             console.log(data.error);

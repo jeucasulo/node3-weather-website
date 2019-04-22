@@ -11,6 +11,8 @@ const forecast = require('./utils/forecast');
 // console.log(path.join(__dirname,'../public'));// /home/ec2-user/environment/node-courses/web-server/public
 
 const app = express();
+const port = process.env.PORT || 3000; //heroku
+
 
 // Define path for express config
 const publicDirectoryPath = path.join(__dirname,'../public/');
@@ -119,8 +121,9 @@ app.get('*',(req, res)=>{ // must to be the last one, the wildcard (*) means for
 
 
 
-app.listen(8080,()=>{
-    console.log('Server is up on port 8080');
+// app.listen(8080,()=>{ // local
+app.listen(port,()=>{ // heroku or local
+    console.log('Server is up on port ' + port);
 });
 
 
