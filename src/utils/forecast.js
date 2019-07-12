@@ -10,21 +10,9 @@ const forecast = (latitude, longitude, callback) => {
             callback('Unable to find location', undefined)
         } else {
             //
-                // try {
-                    const fs = require('fs');
-
-                    const dataBuffer = fs.readFileSync('teste.json');
-                    const dataJSON = dataBuffer.toString();
-                    let myjson = JSON.parse(dataJSON);
-                    let myjsonTeste = myjson.teste;
-                // } catch (e) {
-                    // return [];
-                // }
-
-            //
-            callback(undefined, 'jsonTeste: '+myjsonTeste+" > "+response.body.daily.data[0].summary + ' It is currently ' + response.body.currently.temperature + ' degress out. There is a ' + response.body.currently.precipProbability + '% chance of rain.')
+            callback(undefined,response.body.daily.data[0].summary + ' It is currently ' + response.body.currently.temperature + ' degress out. There is a ' + response.body.currently.precipProbability + '% chance of rain.')
             
-            fs.writeFileSync('teste.json', '{"teste":"testando123Funcionou"}');
+            
         }
     })
 }
