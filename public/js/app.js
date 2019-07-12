@@ -20,7 +20,6 @@ fetch('/weather?address='+location+'').then((response)=>{ //heroku or local
             console.log(data.forecast);
             messageOne.textContent = data.location;
             messageTwo.textContent = data.forecast;
-
         }
     });
 });    
